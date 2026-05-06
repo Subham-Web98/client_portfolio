@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rajnandini</title>
+    <!-- Favicon (Browser Tab Icon) -->
+    <link rel="icon" type="image/png" href="./images/favicon.png?v=2" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* Cleaned up duplicate keyframes and fixed missing braces */
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes floatSlow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      @keyframes floatReverse {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(20px);
+        }
+      }
+
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .animate-float-slow {
+        animation: floatSlow 6s ease-in-out infinite;
+      }
+
+      .animate-float-reverse {
+        animation: floatReverse 5s ease-in-out infinite;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-950 text-white overflow-x-hidden">
+    <!-- ================= NAVBAR ================= -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 text-white backdrop-blur-lg bg-black/50 border-b border-white/10"
+      data-aos="fade-down"
+      data-aos-delay="300"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- LOGO -->
+        <a
+          href="#home"
+          class="md:text-4xl text-2xl font-bold italic text-transparent bg-gradient-to-r from-[#bd5cf8] via-[#8e6cf5] to-[#bb61c5] bg-clip-text transition-all duration-300 inline-block transform hover:-translate-y-1 hover:opacity-80"
+        >
+          .folio
+        </a>
+
+        <!-- MOBILE BUTTON -->
+        <button
+          id="menuBtn"
+          class="lg:hidden text-xl focus:outline-none hover:text-purple-400 transition-colors"
+          aria-label="Open Menu"
+        >
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+
+        <!-- DESKTOP NAV -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="text-lg hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="text-lg hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="text-lg hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="text-lg hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="text-lg hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+            >Projects</a
+          >
+          <a
+            href="tel:+918910114652"
+            class="flex items-center gap-2 text-blue-400 border border-blue-400 px-4 py-2 rounded-full font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <i class="fas fa-phone"></i> Contact Me
+          </a>
+        </nav>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div
+        id="mobileMenu"
+        class="hidden fixed inset-0 w-full min-h-screen bg-gray-950/95 backdrop-blur-xl flex-col items-center justify-center space-y-8 z-50 transition-opacity"
+      >
+        <button
+          id="closeBtn"
+          class="absolute top-6 right-6 text-4xl text-gray-400 hover:text-white transition-all duration-300 transform hover:rotate-90 hover:scale-110"
+          aria-label="Close Menu"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <a
+          href="#home"
+          class="text-2xl hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="text-2xl hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+          >About</a
+        >
+        <a
+          href="#skills"
+          class="text-2xl hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+          >Skills</a
+        >
+        <a
+          href="#experience"
+          class="text-2xl hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+          >Experience</a
+        >
+        <a
+          href="#projects"
+          class="text-2xl hover:text-purple-400 transition-all duration-300 transform hover:-translate-y-1 inline-block"
+          >Projects</a
+        >
+        <a
+          href="tel:+918910114652"
+          class="flex items-center gap-2 text-blue-400 text-xl border border-blue-400 px-6 py-2 rounded-full font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+        >
+          <i class="fas fa-phone"></i> Contact Me
+        </a>
+      </div>
+    </header>
+
+    <!-- ************************ Hero ************************************************* -->
+    <section
+      id="home"
+      class="min-h-screen relative flex items-center justify-center pt-24 pb-12 overflow-hidden"
+    >
+      <!-- Glow Background (Pointer events none to avoid blocking clicks) -->
+      <div
+        class="absolute -z-10 w-72 h-72 bg-[#cd3cf5] rounded-full blur-[100px] opacity-40 top-20 left-10 pointer-events-none"
+      ></div>
+
+      <main
+        class="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 z-10"
+      >
+        <!-- TEXT SECTION -->
+        <article
+          class="flex-1 text-center lg:text-left relative"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <header>
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl text-white mb-4 font-light"
+            >
+              Hey I’m <br />
+              <span class="font-bold leading-tight">Rajnandini Patra</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-[#c744ec] mb-4">
+              SEO & Digital Marketing Enthusiast
+            </h2>
+          </header>
+
+          <p
+            class="text-base md:text-lg text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+          >
+            I’m passionate about exploring the digital space and excited to help
+            brands grow with SEO, Google Ads, and Social Media Marketing.
+          </p>
+
+          <div
+            class="flex flex-wrap justify-center lg:justify-start items-center gap-6"
+          >
+            <a
+              href="https://github.com/mycodewolrd"
+              target="_blank"
+              class="inline-block transition-all duration-300 transform hover:-translate-y-1 hover:scale-110"
+              aria-label="GitHub Profile"
+            >
+              <img
+                src="./images/github.png"
+                alt="GitHub"
+                class="w-10 h-10 md:w-12 md:h-12 object-contain hover:opacity-80 transition-opacity"
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/rajnandinipatra2003/"
+              target="_blank"
+              class="inline-block transition-all duration-300 transform hover:-translate-y-1 hover:scale-110"
+              aria-label="LinkedIn Profile"
+            >
+              <img
+                src="./images/linkedin.png"
+                alt="LinkedIn"
+                class="w-10 h-10 md:w-12 md:h-12 object-contain hover:opacity-80 transition-opacity"
+              />
+            </a>
+
+            <a href="./Resume_Rajnandini.pdf" download>
+              <button
+                class="border-2 border-purple-500 py-3 px-8 rounded-full text-lg font-medium hover:bg-purple-600 hover:border-purple-600 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all duration-300"
+              >
+                Download CV
+              </button>
+            </a>
+          </div>
+        </article>
+
+        <!-- IMAGE SECTION -->
+        <figure
+          class="flex-1 flex justify-center lg:justify-end relative w-full"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <div
+            class="absolute -z-10 w-72 h-72 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full blur-[100px] opacity-50 top-1/2 right-10 -translate-y-1/2 pointer-events-none"
+          ></div>
+          <img
+            src="./images/imghero.png"
+            alt="Rajnandini Patra"
+            class="w-64 sm:w-80 md:w-96 lg:w-[450px] h-auto object-cover rounded-lg animate-float"
+          />
+        </figure>
+      </main>
+    </section>
+
+    <!-- ******************************** About ***************************************** -->
+    <section id="about" class="py-20 relative overflow-hidden">
+      <div
+        class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+      >
+        <!-- IMAGE SECTION -->
+        <figure
+          class="relative flex justify-center w-full max-w-md mx-auto lg:mx-0"
+          data-aos="fade-right"
+        >
+          <!-- Background Glow -->
+          <div
+            class="absolute inset-0 bg-gradient-to-l from-[#6d2897] via-[#6c95f5] to-[#bb61c5] rounded-full blur-[80px] opacity-50 pointer-events-none"
+          ></div>
+
+          <!-- MAIN IMAGE -->
+          <img
+            src="./images/img_about2.png"
+            alt="About Me"
+            class="relative z-10 w-3/4 h-auto rounded-xl shadow-2xl animate-float"
+          />
+
+          <!-- TOP FLOAT -->
+          <img
+            src="./images/img_about1.png"
+            alt="Decoration 1"
+            class="absolute -top-8 -left-4 z-20 w-1/3 rounded-2xl shadow-lg animate-float-slow"
+          />
+
+          <!-- BOTTOM FLOAT -->
+          <img
+            src="./images/img_about.png"
+            alt="Decoration 2"
+            class="absolute -bottom-8 -right-4 z-10 w-1/3 rounded-2xl shadow-lg animate-float-reverse"
+          />
+        </figure>
+
+        <!-- TEXT SECTION -->
+        <article class="text-center lg:text-left relative" data-aos="fade-left">
+          <div
+            class="absolute -z-10 w-48 h-48 bg-[#cd3cf5] rounded-full blur-[80px] opacity-30 -top-10 left-0 pointer-events-none"
+          ></div>
+
+          <header>
+            <h1
+              class="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text"
+            >
+              About Me
+            </h1>
+          </header>
+
+          <div
+            class="text-base md:text-lg text-gray-300 space-y-5 leading-relaxed"
+          >
+            <p>
+              I’m a creative digital marketing enthusiast passionate about
+              branding and growth. I’ve been exploring
+              <span class="font-bold text-white">SEO, Google Ads</span> and
+              <span class="font-bold text-white">Social Media Marketing</span>.
+            </p>
+            <p>
+              I hold a
+              <span class="font-bold text-white">BBA in Marketing</span> with
+              certifications in
+              <span class="font-bold text-white"
+                >Digital Marketing, CRM, and Project Management</span
+              >.
+            </p>
+            <p>
+              With experience in
+              <span class="font-bold text-white">Web Development</span>, I build
+              responsive, SEO-friendly websites aligned with marketing goals.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ******************************** Skills ***************************************** -->
+    <section id="skills" class="py-20 relative overflow-hidden bg-gray-900/50">
+      <!-- Background Glow -->
+      <div
+        class="absolute -z-10 w-96 h-96 bg-[#cd3cf5] rounded-full blur-[120px] opacity-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10 text-center">
+        <!-- TITLE -->
+        <header data-aos="fade-up" class="mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            My Expertise <br class="md:hidden" />
+            <span class="text-purple-400">and Skills</span>
+          </h1>
+          <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+            I blend creativity with technical skills, specializing in digital
+            marketing, web development, and branding to deliver user-focused
+            results.
+          </p>
+        </header>
+
+        <!-- GRID -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <!-- CARD 1 -->
+          <article
+            class="bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 shadow-xl transition-all duration-500 hover:bg-purple-600/90 hover:-translate-y-2 group"
+          >
+            <figure class="flex justify-center mb-6">
+              <img
+                src="./images/SEO.png"
+                alt="SEO"
+                class="w-20 h-20 group-hover:scale-110 transition-transform duration-300"
+              />
+            </figure>
+            <h3 class="text-xl font-bold mb-3 text-white">
+              Search Engine Optimization
+            </h3>
+            <p
+              class="text-gray-400 group-hover:text-gray-100 transition-colors leading-relaxed"
+            >
+              Experienced in on-page and off-page SEO, keyword research, meta
+              optimization, and content strategy to improve visibility and
+              organic traffic.
+            </p>
+          </article>
+
+          <!-- CARD 2 -->
+          <article
+            class="bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 shadow-xl transition-all duration-500 hover:bg-purple-600/90 hover:-translate-y-2 group"
+          >
+            <figure class="flex justify-center mb-6">
+              <img
+                src="./images/campaign.webp"
+                alt="Social Media"
+                class="w-20 h-20 group-hover:scale-110 transition-transform duration-300"
+              />
+            </figure>
+            <h3 class="text-xl font-bold mb-3 text-white">
+              Social Media Marketing
+            </h3>
+            <p
+              class="text-gray-400 group-hover:text-gray-100 transition-colors leading-relaxed"
+            >
+              Skilled in content creation and campaign execution across
+              platforms like Instagram, Facebook, and LinkedIn to boost
+              engagement and reach.
+            </p>
+          </article>
+
+          <!-- CARD 3 -->
+          <article
+            class="bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl border border-white/5 shadow-xl transition-all duration-500 hover:bg-purple-600/90 hover:-translate-y-2 group"
+          >
+            <figure class="flex justify-center mb-6">
+              <img
+                src="./images/development.png"
+                alt="Web Development"
+                class="w-20 h-20 group-hover:scale-110 transition-transform duration-300"
+              />
+            </figure>
+            <h3 class="text-xl font-bold mb-3 text-white">Web Development</h3>
+            <p
+              class="text-gray-400 group-hover:text-gray-100 transition-colors leading-relaxed"
+            >
+              Proficient in building responsive, SEO-friendly websites using
+              HTML, CSS, Tailwind, and JavaScript with focus on performance and
+              UX.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ******************************** Experience ***************************************** -->
+    <section id="experience" class="py-20 relative overflow-hidden">
+      <!-- Background Glow -->
+      <div
+        class="absolute -z-10 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[150px] opacity-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+      ></div>
+
+      <div class="container mx-auto px-6 text-center mb-12" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Work <span class="text-purple-400">Experience</span>
+        </h1>
+        <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
+          Hands-on experience in digital marketing, content creation, and
+          design— combining creativity with strategy.
+        </p>
+      </div>
+
+      <!-- SINGLE FEATURE SECTION -->
+      <div
+        class="container mx-auto px-6 max-w-5xl"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <a
+          href="#"
+          class="relative block h-[500px] group overflow-hidden rounded-3xl shadow-2xl"
+        >
+          <!-- Thumbnail -->
+          <img
+            src="./images/project3.png"
+            alt="Featured Work"
+            class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+          />
+
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:via-black/40 transition duration-500"
+          ></div>
+
+          <!-- Content -->
+          <div
+            class="absolute bottom-0 left-0 w-full p-10 flex flex-col items-center md:items-start text-center md:text-left z-10"
+          >
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-3">
+              Featured Project
+            </h2>
+            <p class="text-gray-200 max-w-xl mb-6 text-base md:text-lg">
+              A highlight of my work in SEO, content creation, and design
+              strategy.
+            </p>
+            <span
+              class="inline-flex items-center gap-2 px-8 py-3 bg-purple-600 text-white rounded-full font-medium shadow-lg hover:bg-purple-500 transform hover:scale-105 transition-all duration-300"
+            >
+              Click to Visit <i class="fas fa-arrow-right"></i>
+            </span>
+          </div>
+
+          <!-- Hover Glow Border -->
+          <div
+            class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-purple-400/50 transition duration-500 pointer-events-none"
+          ></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ******************************** Projects ************************************** -->
+    <section id="projects" class="py-20 bg-gray-900/30">
+      <div class="container mx-auto px-6">
+        <!-- HEADER -->
+        <div class="text-center mb-16 relative" data-aos="fade-up">
+          <div
+            class="absolute -z-10 w-96 h-96 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full blur-[120px] opacity-20 top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+          ></div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            My <span class="text-purple-400">Projects</span>
+          </h1>
+          <p class="text-gray-300 text-base md:text-lg max-w-3xl mx-auto">
+            Each project reflects my ability to merge strategy, functionality
+            and design— from SEO research to social media planning and
+            responsive web development.
+          </p>
+        </div>
+
+        <!-- GRID -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <!-- CARD 1 -->
+          <article
+            class="bg-gray-800/50 border border-white/10 rounded-2xl overflow-hidden shadow-lg group hover:-translate-y-3 transition-transform duration-500 flex flex-col"
+          >
+            <figure class="relative overflow-hidden h-56">
+              <img
+                src="./images/project1.png"
+                alt="SEO Keyword Research"
+                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-purple-900/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm"
+              >
+                <a
+                  href="https://keyword-research-project.my.canva.site/"
+                  target="_blank"
+                  class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0"
+                >
+                  Live Preview
+                </a>
+              </div>
+            </figure>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold text-white mb-2">
+                SEO Keyword Research
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed flex-1">
+                Created a keyword research case study with actionable SEO
+                insights for better visibility.
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 2 -->
+          <article
+            class="bg-gray-800/50 border border-white/10 rounded-2xl overflow-hidden shadow-lg group hover:-translate-y-3 transition-transform duration-500 flex flex-col"
+          >
+            <figure class="relative overflow-hidden h-56">
+              <img
+                src="./images/project2.png"
+                alt="Social Media Strategy"
+                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-purple-900/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm"
+              >
+                <a
+                  href="https://keyword-research-project.my.canva.site/social-marketing-strategy-plan"
+                  target="_blank"
+                  class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0"
+                >
+                  Live Preview
+                </a>
+              </div>
+            </figure>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Social Media Strategy
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed flex-1">
+                Developed a full social media growth strategy with content
+                planning and targeting.
+              </p>
+            </div>
+          </article>
+
+          <!-- CARD 3 -->
+          <article
+            class="bg-gray-800/50 border border-white/10 rounded-2xl overflow-hidden shadow-lg group hover:-translate-y-3 transition-transform duration-500 flex flex-col"
+          >
+            <figure class="relative overflow-hidden h-56">
+              <img
+                src="./images/project3.png"
+                alt="Portfolio Website"
+                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-purple-900/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm"
+              >
+                <a
+                  href="https://mycodewolrd.github.io/Elixir.---Bootstrap-Design/"
+                  target="_blank"
+                  class="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0"
+                >
+                  Live Preview
+                </a>
+              </div>
+            </figure>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Portfolio Website
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed flex-1">
+                Built a responsive SEO-friendly website with modern UI and
+                smooth UX.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- **************************** Testimonials ************************************** -->
+    <section id="feedback" class="py-20 overflow-hidden">
+      <div class="container mx-auto px-6">
+        <!-- HEADER -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Client
+            <span
+              class="bg-gradient-to-r from-purple-400 to-indigo-400 text-transparent bg-clip-text"
+              >Feedback</span
+            >
+          </h1>
+          <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
+            Real results. Real experiences. Here's what clients say about
+            working with me.
+          </p>
+        </div>
+
+        <!-- SLIDER CONTAINER -->
+        <div
+          class="relative max-w-4xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="overflow-hidden rounded-2xl">
+            <div
+              id="slides"
+              class="flex transition-transform duration-500 ease-in-out"
+            >
+              <!-- SLIDE 1 -->
+              <div class="min-w-full px-4">
+                <div
+                  class="bg-gray-800/40 border border-white/10 p-8 md:p-12 rounded-2xl text-center backdrop-blur-sm"
+                >
+                  <p
+                    class="text-gray-300 text-lg md:text-xl italic leading-relaxed mb-8"
+                  >
+                    "Amazing work on SEO strategy. The results improved our
+                    visibility significantly!"
+                  </p>
+                  <h3 class="text-white font-bold text-lg">Amit Sharma</h3>
+                  <span class="text-purple-400 text-sm">Startup Founder</span>
+                </div>
+              </div>
+
+              <!-- SLIDE 2 -->
+              <div class="min-w-full px-4">
+                <div
+                  class="bg-gray-800/40 border border-white/10 p-8 md:p-12 rounded-2xl text-center backdrop-blur-sm"
+                >
+                  <p
+                    class="text-gray-300 text-lg md:text-xl italic leading-relaxed mb-8"
+                  >
+                    "Creative social media campaigns that boosted engagement
+                    rapidly!"
+                  </p>
+                  <h3 class="text-white font-bold text-lg">Priya Das</h3>
+                  <span class="text-purple-400 text-sm">Brand Manager</span>
+                </div>
+              </div>
+
+              <!-- SLIDE 3 -->
+              <div class="min-w-full px-4">
+                <div
+                  class="bg-gray-800/40 border border-white/10 p-8 md:p-12 rounded-2xl text-center backdrop-blur-sm"
+                >
+                  <p
+                    class="text-gray-300 text-lg md:text-xl italic leading-relaxed mb-8"
+                  >
+                    "Clean website design with strong UX. Highly recommend!"
+                  </p>
+                  <h3 class="text-white font-bold text-lg">Rahul Sen</h3>
+                  <span class="text-purple-400 text-sm">Business Owner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTROLS -->
+          <button
+            id="prev"
+            aria-label="Previous Slide"
+            class="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 w-12 h-12 bg-gray-800 border border-white/10 text-white rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors shadow-lg z-10"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            id="next"
+            aria-label="Next Slide"
+            class="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 w-12 h-12 bg-gray-800 border border-white/10 text-white rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors shadow-lg z-10"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- DOTS -->
+          <div class="flex justify-center mt-8 gap-3">
+            <span
+              class="dot w-3 h-3 rounded-full bg-purple-500 cursor-pointer transition-colors"
+            ></span>
+            <span
+              class="dot w-3 h-3 rounded-full bg-gray-600 cursor-pointer hover:bg-purple-400 transition-colors"
+            ></span>
+            <span
+              class="dot w-3 h-3 rounded-full bg-gray-600 cursor-pointer hover:bg-purple-400 transition-colors"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- **************************** Feedback Form ************************************** -->
+    <section class="py-20 relative overflow-hidden">
+      <div class="container mx-auto px-6">
+        <div
+          class="bg-gray-900 border border-white/5 rounded-3xl flex flex-col md:flex-row items-center max-w-6xl mx-auto overflow-hidden shadow-2xl relative"
+        >
+          <!-- Background Glow -->
+          <div
+            class="absolute -z-10 w-96 h-96 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full blur-[150px] opacity-20 -top-20 -left-20 pointer-events-none"
+          ></div>
+
+          <!-- IMAGE SIDE -->
+          <aside
+            class="w-full md:w-1/2 p-10 flex justify-center relative"
+            data-aos="fade-right"
+          >
+            <img
+              src="./images/imghero.png"
+              alt="Contact Illustration"
+              class="w-64 md:w-80 h-auto object-contain relative z-10 animate-float"
+            />
+          </aside>
+
+          <!-- FORM -->
+          <div
+            class="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-black/40 backdrop-blur-md"
+            data-aos="fade-left"
+          >
+            <header class="mb-8">
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                Give Your Feedback
+              </h2>
+              <p class="text-gray-400">I'd love to hear from you!</p>
+            </header>
+
+            <form class="space-y-5" action="#" method="POST">
+              <div>
+                <label
+                  for="name"
+                  class="block text-gray-300 font-medium mb-2 text-sm"
+                  >Name</label
+                >
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  required
+                  class="w-full px-5 py-3 text-white bg-gray-800/50 border border-gray-700 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all outline-none"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="email"
+                  class="block text-gray-300 font-medium mb-2 text-sm"
+                  >Email</label
+                >
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your email"
+                  required
+                  class="w-full px-5 py-3 text-white bg-gray-800/50 border border-gray-700 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all outline-none"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-300 font-medium mb-2 text-sm"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="4"
+                  placeholder="Your message"
+                  required
+                  class="w-full px-5 py-3 text-white bg-gray-800/50 border border-gray-700 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all outline-none resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full text-white bg-purple-600 hover:bg-purple-500 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(168,85,247,0.3)]"
+              >
+                Submit Feedback
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- **************************** Footer ************************************** -->
+    <footer class="bg-gray-900 border-t border-white/5 pt-16 pb-8 mt-12">
+      <div class="container mx-auto px-6 flex flex-col items-center gap-8">
+        <!-- Call to Action -->
+        <div class="text-center space-y-4" data-aos="fade-up">
+          <h2
+            class="text-3xl md:text-5xl font-extrabold text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text"
+          >
+            Let's Connect Together
+          </h2>
+          <p class="text-gray-400">Reach out via email or WhatsApp</p>
+          <a
+            href="mailto:rajnandinipatra2003@gmail.com"
+            class="block text-xl md:text-2xl font-bold text-white hover:text-purple-400 transition-colors mt-2"
+          >
+            rajnandinipatra2003@gmail.com
+          </a>
+        </div>
+
+        <div class="flex items-center gap-4 text-gray-400">
+          <span class="h-px w-12 bg-gray-700"></span>
+          <span>OR</span>
+          <span class="h-px w-12 bg-gray-700"></span>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <a
+          href="https://wa.me/918910114652?text=Hello%20Rajnandini%2C%20just%20visited%20your%20portfolio%21"
+          target="_blank"
+          class="flex items-center gap-3 bg-green-500/10 text-green-400 border border-green-500/30 px-6 py-3 rounded-full hover:bg-green-500 hover:text-white transition-all transform hover:scale-105"
+        >
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span class="font-medium">Chat on WhatsApp</span>
+        </a>
+
+        <!-- Divider -->
+        <div
+          class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent my-4"
+        ></div>
+
+        <!-- Bottom Bar -->
+        <div
+          class="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
+        >
+          <a
+            href="#home"
+            class="text-2xl font-bold text-white hover:text-purple-400 transition-colors"
+            >.folio</a
+          >
+          <p class="text-gray-500 text-sm">
+            © 2026 Rajnandini Patra. All rights reserved.
+          </p>
+          <div class="flex items-center gap-6">
+            <a
+              href="https://github.com/mycodewolrd"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-colors text-xl"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rajnandinipatra2003/"
+              target="_blank"
+              class="text-gray-400 hover:text-blue-500 transition-colors text-xl"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="tel:+918910114652"
+              class="text-gray-400 hover:text-green-400 transition-colors text-xl"
+              aria-label="Phone"
+            >
+              <i class="fas fa-phone"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
